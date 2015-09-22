@@ -9,13 +9,15 @@ RUN echo "Europe/Brussels" > /etc/timezone && dpkg-reconfigure tzdata
 
 # Install required packages
 RUN apt-get clean all && apt-get update && apt-get -y dist-upgrade
-RUN apt-get -y install supervisor curl git wget build-essential
+RUN apt-get -y install supervisor curl git wget build-essential python-setuptools
 
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Config supervisor
-ADD conf/supervisord.conf /etc/supervisor/supervisord.conf
+RUN /usr/bin/easy_install supervisor-stdout
+ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD conf/stdout.conf /etc/supervisor/conf.d/stdout.conf
 
 # Add shell scripts for starting supervisor
 ADD shell/run.sh /run.sh
