@@ -14,6 +14,9 @@ RUN apt-get -y install supervisor curl git wget build-essential
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Config supervisor
+ADD conf/supervisord.conf /etc/supervisor/supervisord.conf
+
 # Add shell scripts for starting supervisor
 ADD shell/run.sh /run.sh
 
