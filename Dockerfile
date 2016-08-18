@@ -5,7 +5,7 @@ MAINTAINER Stanou49 <stanou49@yahoo.fr>
 ENV DEBIAN_FRONTEND noninteractive
 
 # Configure timezone
-RUN echo "Europe/Brussels" > /etc/timezone && dpkg-reconfigure tzdata
+RUN echo "Europe/Paris" > /etc/timezone && dpkg-reconfigure tzdata
 
 # Install required packages & cleanup
 RUN apt-get clean all && \
