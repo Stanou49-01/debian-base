@@ -1,5 +1,5 @@
 FROM debian:latest
-MAINTAINER Damien Lagae <damien@lagae.info>
+MAINTAINER Stanou49 <stanou49@yahoo.fr>
 
 # Set the enviroment variable
 ENV DEBIAN_FRONTEND noninteractive
